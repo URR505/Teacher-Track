@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Encuesta</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/alumno.css" rel="stylesheet" />
+    <link href="../css/encuesta.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-black bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="alumno.html">Teacher-Track</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="alumno.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="reportes.html">Reportar</a></li>
+            </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="btn btn-outline-dark dropdown-toggle-square">
+                        <i class="bi bi-person me-1"></i>
+                        Perfil
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">4</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Notificaciones</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+</nav>
+<!-- Header-->
+<header class="bg-success py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="../img/1.png" alt="..." />                      <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Prof. Victor </h5>
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                                <div class="bi-star-fill"></div>
+                            </div>
+                            <!-- Product price-->
+                            <b>Area: </b>TICS<br>
+                            <b>Asignatura: </b>POO
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main content area -->
+<div id="goh" class="container">
+    <h1>Responde las preguntas a continuación</h1>
+    <p>Gracias por participar en esta evaluación docente, tu opinión es muy importante para nosotros, tus comentarios ayudan a mejorar las calidad de la educación y el ambiente educativo de esta escuela.</p>
+    <p>Responde las preguntas lo más honesto y neutral posible, tus respuestas son anónimas.</p>
+    <form id="evaluationForm">
+        <div class="form-group">
+            <label class="label">¿Con qué frecuencia el profesor llega a tiempo a clases?</label>
+            <div class="radio-label">
+                <input type="radio" id="nunca" name="puntualidad" value="nunca">
+                <label for="nunca">Nunca</label><br>
+                <input type="radio" id="raramente" name="puntualidad" value="raramente">
+                <label for="raramente">Raramente</label><br>
+                <input type="radio" id="a_veces" name="puntualidad" value="a_veces">
+                <label for="a_veces">A veces</label><br>
+                <input type="radio" id="frecuentemente" name="puntualidad" value="frecuentemente">
+                <label for="frecuentemente">Frecuentemente</label><br>
+                <input type="radio" id="siempre" name="puntualidad" value="siempre">
+                <label for="siempre">Siempre</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="label">¿El profesor comunica claramente los objetivos y expectativas del curso?</label>
+            <div class="radio-label">
+                <input type="radio" id="comunicacion_1" name="comunicacion" value="totalmente_desacuerdo">
+                <label for="comunicacion_1">Totalmente en desacuerdo</label><br>
+                <input type="radio" id="comunicacion_2" name="comunicacion" value="en_desacuerdo">
+                <label for="comunicacion_2">En desacuerdo</label><br>
+                <input type="radio" id="comunicacion_3" name="comunicacion" value="neutral">
+                <label for="comunicacion_3">Neutral</label><br>
+                <input type="radio" id="comunicacion_4" name="comunicacion" value="de_acuerdo">
+                <label for="comunicacion_4">De acuerdo</label><br>
+                <input type="radio" id="comunicacion_5" name="comunicacion" value="totalmente_de_acuerdo">
+                <label for="comunicacion_5">Totalmente de acuerdo</label>
+            </div>
+        </div>
+        <!-- Resto de preguntas similares -->
+        <div class="form-group">
+            <label class="label" for="comentarios">Comentarios Adicionales:</label>
+            <textarea id="comentarios" name="comentarios" placeholder="Por favor, proporciona cualquier comentario adicional que creas relevante para la evaluación del profesor."></textarea>
+        </div>
+        <div class="form-group">
+            <label class="label">Nivel de Satisfacción General:</label>
+            <input type="number" id="satisfaccion" name="satisfaccion" min="1" max="10" required>
+        </div>
+        <div class="form-group">
+            <label class="label">¿Recomendarías este profesor a otros estudiantes?</label>
+            <div class="radio-label">
+                <input type="radio" id="recomendar_si" name="recomendar" value="si">
+                <label for="recomendar_si">Sí</label><br>
+                <input type="radio" id="recomendar_no" name="recomendar" value="no">
+                <label for="recomendar_no">No</label><br>
+                <input type="radio" id="recomendar_no_sure" name="recomendar" value="no_sure">
+                <label for="recomendar_no_sure">No estoy seguro</label>
+            </div>
+        </div>
+        <!-- Botón de envío con modal de confirmación -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+            Enviar
+    </form>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirmación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que quieres enviar tus respuestas?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="enviarRespuestas()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function enviarRespuestas() {
+        // Aquí puedes agregar el código para enviar las respuestas al servidor
+        // Por ejemplo, podrías redirigir al usuario a la página alumno.html después de enviar las respuestas
+        window.location.href = 'alumno.html';
+    }
+</script>
+
+<!-- Bootstrap JS y jQuery -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

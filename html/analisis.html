@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis</title>
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <!-- Chart.js -->
+    <script src="../js/chart.js"></script>
+    <link href="../css/alumno.css" rel="stylesheet" />
+    <link href="../css/encuesta.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-black bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="director.html">Teacher-Track</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="director.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="consultareportes.html">Reportes</a></li>
+                </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="btn btn-outline-dark dropdown-toggle-square">
+                            <i class="bi bi-person me-1"></i>
+                            Perfil
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">4</span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Notificaciones</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-success py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="../img/1.png" alt="..." />                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Prof. Victor </h5>
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <b>Area: </b>TICS<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div id= "goh" class="container mt-5">
+        <div class="row">
+            <!-- Área 1: Comunicación -->
+            <div class="col-md-6">
+                <h3>Comunicación</h3>
+                <canvas id="comunicacionChart"></canvas>
+            </div>
+            <!-- Área 2: Responsabilidad -->
+            <div class="col-md-6">
+                <h3>Responsabilidad</h3>
+                <canvas id="responsabilidadChart"></canvas>
+            </div>
+            <!-- Área 3: Formas de enseñanza -->
+            <div class="col-md-6">
+                <h3>Eficacia en forma de enseñar</h3>
+                <canvas id="ensenanzaChart"></canvas>
+            </div>
+            <!-- Área 4: Toma en cuenta de sugerencias -->
+            <div class="col-md-6">
+                <h3>Toma en cuenta de Sugerencias</h3>
+                <canvas id="sugerenciasChart"></canvas>
+            </div>
+            <!-- Área 5: Promedio -->
+            <div class="col-md-6">
+                <h3>Calificación</h3>
+                <canvas id="promedioChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para generar gráficas -->
+    <script>
+        // Generar datos aleatorios para las gráficas
+        const getRandomData = () => {
+            return Array.from({ length: 5 }, () => Math.floor(Math.random() * 20));
+        };
+
+        // Datos aleatorios para cada área
+        const comunicacionData = {
+            labels: ['Siempre', 'Casi siempre', 'A veces', 'Casi nunca', 'Nunca'],
+            datasets: [{
+                label: 'Comunicación',
+                data: getRandomData(),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const responsabilidadData = {
+            labels: ['Siempre', 'Casi siempre', 'A veces', 'Casi nunca', 'Nunca'],
+            datasets: [{
+                label: 'Responsabilidad',
+                data: getRandomData(),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const ensenanzaData = {
+            labels: ['Siempre', 'Casi siempre', 'A veces', 'Casi nunca', 'Nunca'],
+            datasets: [{
+                label: 'Formas de Enseñanza',
+                data: getRandomData(),
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const sugerenciasData = {
+            labels: ['Siempre', 'Casi siempre', 'A veces', 'Casi nunca', 'Nunca'],
+            datasets: [{
+                label: 'Toma en cuenta de Sugerencias',
+                data: getRandomData(),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const promedioData = {
+            labels: ['0', '6', '7', '8', '10'],
+            datasets: [{
+                label: 'Promedio',
+                data: getRandomData(),
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuración de las opciones de las gráficas
+        const chartOptions = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        // Crear las gráficas
+        const comunicacionChart = new Chart(document.getElementById('comunicacionChart'), {
+            type: 'bar',
+            data: comunicacionData,
+            options: chartOptions
+        });
+
+        const responsabilidadChart = new Chart(document.getElementById('responsabilidadChart'), {
+            type: 'bar',
+            data: responsabilidadData,
+            options: chartOptions
+        });
+
+        const ensenanzaChart = new Chart(document.getElementById('ensenanzaChart'), {
+            type: 'bar',
+            data: ensenanzaData,
+            options: chartOptions
+        });
+
+        const sugerenciasChart = new Chart(document.getElementById('sugerenciasChart'), {
+            type: 'bar',
+            data: sugerenciasData,
+            options: chartOptions
+        });
+
+        const promedioChart = new Chart(document.getElementById('promedioChart'), {
+            type: 'bar',
+            data: promedioData,
+            options: chartOptions
+        });
+    </script>
+
+    <!-- Bootstrap JS y jQuery -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenido a Teacher-Track</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="login-box">
+      <img src="img/logo.png" class="avatar" alt="Avatar Image">
+      <h1>Teacher-Track</h1>
+      <form id="loginForm" onsubmit="return validateForm()">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" placeholder="Ingrese usuario">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Ingrese contraseña">
+        <input type="submit" value="Continuar">
+        <a href="https://www.google.com">¿Olvidaste tu contraseña?</a><br>
+        <x>¿No tienes una cuenta?</x>
+        <a href="https://www.google.com">Regístrate</a>
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (username === 'director' && password === 'root') {
+          window.location.href = 'html/director.html';
+        } else if (username === 'alumno' && password === 'root') {
+          window.location.href = 'html/alumno.html';
+        } else if (username === 'profesor' && password === 'root') {
+          window.location.href = 'html/profesor.html';
+        } else {
+          alert('Credenciales incorrectas. Por favor, intente de nuevo.');
+        }
+
+        return false;
+      }
+    </script>
+
+  </body>
+</html>

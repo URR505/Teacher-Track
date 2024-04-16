@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Respuestas</title>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/alumno.css" rel="stylesheet" />
+    <link href="../css/encuesta.css" rel="stylesheet" />
+    <!-- Chart.js -->
+    <script src="../js/chart.js"></script>
+</head>
+<body>
+    <!-- Encabezado -->
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-black bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="profesor.html">Teacher-Track</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="profesor.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reportes.html">Reportar</a></li>
+                </ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="btn btn-outline-dark dropdown-toggle-square">
+                            <i class="bi bi-person me-1"></i>
+                            Perfil
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">4</span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Ver perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Notificaciones</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-success py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="../img/poo.jpg" alt="..." />  
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">POO</h5>
+                                    <!-- Product price-->
+                                    <b>Area: </b>TICS<br>
+                                    <b>Cantidad de respuestas: </b>79
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Pregunta 1: Frecuencia de puntualidad -->
+            <div class="col-md-6">
+                <h3>¿Con qué frecuencia el profesor llega a tiempo a clases?</h3>
+                <canvas id="puntualidadChart"></canvas>
+            </div>
+            <!-- Pregunta 2: Comunicación de objetivos y expectativas -->
+            <div class="col-md-6">
+                <h3>¿El profesor comunica claramente los objetivos y expectativas del curso?</h3>
+                <canvas id="comunicacionChart"></canvas>
+            </div>
+            <!-- Pregunta 3: Comentarios adicionales -->
+            <!-- Pregunta 4: Nivel de satisfacción general -->
+            <!-- Pregunta 5: Recomendarías este profesor a otros estudiantes -->
+            <div class="col-md-6">
+                <h3>¿Recomendarías este profesor a otros estudiantes?</h3>
+                <canvas id="recomendacionChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h3>¿Cuál es tu nivel de satisfacción con este profesor?</h3>
+                <canvas id="satisfaccionChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para generar gráficas -->
+    <script>
+        
+        // Generar datos aleatorios para las gráficas
+        const getRandomData = () => {
+            return Array.from({ length: 10 }, () => Math.floor(Math.random() * 20));
+        };
+
+        // Datos aleatorios para la frecuencia de puntualidad
+        const puntualidadData = {
+            labels: ['Nunca', 'Raramente', 'A veces', 'Frecuentemente', 'Siempre'],
+            datasets: [{
+                label: 'Frecuencia de Puntualidad',
+                data: getRandomData(),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Datos aleatorios para la comunicación de objetivos y expectativas
+        const comunicacionData = {
+            labels: ['Totalmente en desacuerdo', 'En desacuerdo', 'Neutral', 'De acuerdo', 'Totalmente de acuerdo'],
+            datasets: [{
+                label: 'Comunicación de Objetivos y Expectativas',
+                data: getRandomData(),
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Datos aleatorios para recomendar el profesor
+        const recomendacionData = {
+            labels: ['Sí', 'No', 'No estoy seguro'],
+            datasets: [{
+                label: '¿Recomendarías este profesor a otros estudiantes?',
+                data: getRandomData(),
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuración de las opciones de las gráficas
+        const chartOptions = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        // Crear las gráficas
+        const puntualidadChart = new Chart(document.getElementById('puntualidadChart'), {
+            type: 'bar',
+            data: puntualidadData,
+            options: chartOptions
+        });
+
+        const comunicacionChart = new Chart(document.getElementById('comunicacionChart'), {
+            type: 'bar',
+            data: comunicacionData,
+            options: chartOptions
+        });
+
+        const recomendacionChart = new Chart(document.getElementById('recomendacionChart'), {
+            type: 'bar',
+            data: recomendacionData,
+            options: chartOptions
+        });
+
+        const satisfaccionData = {
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            datasets: [{
+                label: 'Nivel de Satisfacción',
+                data: getRandomData(),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const satisfaccionChart = new Chart(document.getElementById('satisfaccionChart'), {
+            type: 'bar',
+            data: satisfaccionData,
+            options: chartOptions
+        });
+        </script>
+
+    <!-- Bootstrap JS y jQuery -->
+<script src="../js/jquery.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
